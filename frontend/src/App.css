@@ -1,0 +1,182 @@
+/* ================================================================
+   App Shell  –  full-viewport responsive layout
+   ================================================================ */
+
+.app {
+  display: grid;
+  /* header=44px | map+side-panels | bottom tables=220px */
+  grid-template-rows: 44px 1fr 220px;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-app);
+  gap: 0;
+}
+
+/* ── Header ── */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0 var(--space-4);
+  background: var(--bg-panel);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+.header-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.header-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.header-divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border-light);
+  flex-shrink: 0;
+}
+
+.header-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-error {
+  flex: 1;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: var(--red);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  text-align: center;
+  min-width: 0;
+}
+
+.header-tags {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.header-tag {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+/* ── Main 3-column body ── */
+.app-body {
+  display: grid;
+  grid-template-columns: 216px 1fr 248px;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.body-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.body-center {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.body-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Network map: fills all available centre space, but SVG uses
+   preserveAspectRatio so it never overflows vertically */
+.map-wrapper {
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Footer 2-column ── */
+.app-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+  padding: 0 var(--space-2) var(--space-2);
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 1280px) {
+  .app-body {
+    grid-template-columns: 206px 1fr 236px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app-body {
+    grid-template-columns: 190px 1fr 216px;
+  }
+  .header-subtitle { display: none; }
+}
+
+@media (max-width: 768px) {
+  .app {
+    grid-template-rows: 44px 1fr auto auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .app-body {
+    grid-template-columns: 1fr;
+    overflow-y: visible;
+    height: auto;
+  }
+  .body-left, .body-right { overflow-y: visible; }
+  .map-wrapper { height: 44vw; min-height: 220px; }
+  .app-footer {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding-bottom: var(--space-4);
+  }
+  .header-tags { display: none; }
+}
