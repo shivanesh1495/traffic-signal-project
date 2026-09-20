@@ -1,0 +1,60 @@
+.mp {
+  flex-shrink: 0;
+}
+
+.panel-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: var(--space-2) var(--space-3) var(--space-3);
+}
+
+.mp-section {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border);
+}
+.mp-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.mp-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.9px;
+  color: var(--text-muted);
+  margin-bottom: var(--space-1);
+}
+
+.mp-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px var(--space-2);
+  border-radius: var(--radius-sm);
+  gap: var(--space-2);
+}
+.mp-row-hl {
+  background: rgba(74,158,255,0.07);
+}
+
+.mp-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.mp-value {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.mp-unit {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
