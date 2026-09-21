@@ -1,0 +1,105 @@
+{
+  "intersections": [
+    {"id": "I1", "x": 100, "y": 300, "neighbors": ["I2", "I4"], "signal_agent_id": "TSA-1"},
+    {"id": "I2", "x": 300, "y": 300, "neighbors": ["I1", "I3", "I4"], "signal_agent_id": "TSA-2"},
+    {"id": "I3", "x": 500, "y": 300, "neighbors": ["I2", "I5"], "signal_agent_id": "TSA-3"},
+    {"id": "I4", "x": 200, "y": 150, "neighbors": ["I1", "I2", "I5"], "signal_agent_id": "TSA-4"},
+    {"id": "I5", "x": 400, "y": 150, "neighbors": ["I3", "I4"], "signal_agent_id": "TSA-5"}
+  ],
+  "edges": [
+    {"id": "E_I1_I2", "from_node": "I1", "to_node": "I2", "length": 200, "speed_limit": 50, "base_cost": 0.34},
+    {"id": "E_I2_I1", "from_node": "I2", "to_node": "I1", "length": 200, "speed_limit": 50, "base_cost": 0.34},
+    {"id": "E_I2_I3", "from_node": "I2", "to_node": "I3", "length": 200, "speed_limit": 50, "base_cost": 0.34},
+    {"id": "E_I3_I2", "from_node": "I3", "to_node": "I2", "length": 200, "speed_limit": 50, "base_cost": 0.34},
+    {"id": "E_I1_I4", "from_node": "I1", "to_node": "I4", "length": 180, "speed_limit": 60, "base_cost": 0.50},
+    {"id": "E_I4_I1", "from_node": "I4", "to_node": "I1", "length": 180, "speed_limit": 60, "base_cost": 0.50},
+    {"id": "E_I2_I4", "from_node": "I2", "to_node": "I4", "length": 170, "speed_limit": 60, "base_cost": 0.34},
+    {"id": "E_I4_I2", "from_node": "I4", "to_node": "I2", "length": 170, "speed_limit": 60, "base_cost": 0.34},
+    {"id": "E_I3_I5", "from_node": "I3", "to_node": "I5", "length": 180, "speed_limit": 60, "base_cost": 0.34},
+    {"id": "E_I5_I3", "from_node": "I5", "to_node": "I3", "length": 180, "speed_limit": 60, "base_cost": 0.34},
+    {"id": "E_I4_I5", "from_node": "I4", "to_node": "I5", "length": 200, "speed_limit": 50, "base_cost": 0.50},
+    {"id": "E_I5_I4", "from_node": "I5", "to_node": "I4", "length": 200, "speed_limit": 50, "base_cost": 0.50}
+  ],
+  "simulation": {
+    "tick_seconds": 1,
+    "default_duration_seconds": 300,
+    "initial_normal_vehicles": 30,
+    "emergency_vehicles_baseline": 1,
+    "signal_cycle_seconds": 60,
+    "normal_green_seconds": 30,
+    "yellow_seconds": 5,
+    "all_red_seconds": 2,
+    "random_seed": -1,
+    "spawn_rate_per_second": 0.20,
+    "min_speed_kmh": 8,
+    "max_speed_kmh": 42,
+    "emergency_speed_kmh": 60,
+    "max_waiting_time": 120,
+    "stale_message_timeout": 60,
+    "replan_threshold": 0.15
+  },
+  "cost_weights": {
+    "travel_time_weight": 0.50,
+    "congestion_weight": 0.30,
+    "waiting_time_weight": 0.20
+  },
+  "scenarios": {
+    "S0": {
+      "name": "Normal Traffic",
+      "emergency": false,
+      "initial_vehicles": 35,
+      "congestion_hotspot": null,
+      "duration": 120
+    },
+    "S1": {
+      "name": "Emergency Low Congestion",
+      "emergency": true,
+      "emergency_start": "I1",
+      "emergency_destination": "I5",
+      "emergency_type": "ambulance",
+      "initial_vehicles": 18,
+      "congestion_hotspot": null,
+      "duration": 120
+    },
+    "S2": {
+      "name": "Emergency High Congestion",
+      "emergency": true,
+      "emergency_start": "I1",
+      "emergency_destination": "I5",
+      "emergency_type": "fire_truck",
+      "initial_vehicles": 55,
+      "congestion_hotspot": ["I4", "I5"],
+      "duration": 180
+    },
+    "S3": {
+      "name": "Alternative Routes",
+      "emergency": true,
+      "emergency_start": "I1",
+      "emergency_destination": "I3",
+      "emergency_type": "police",
+      "initial_vehicles": 40,
+      "congestion_hotspot": ["I4"],
+      "duration": 150
+    },
+    "S4": {
+      "name": "Dynamic Congestion",
+      "emergency": true,
+      "emergency_start": "I2",
+      "emergency_destination": "I5",
+      "emergency_type": "ambulance",
+      "initial_vehicles": 45,
+      "congestion_hotspot": ["I2", "I4"],
+      "duration": 180
+    },
+    "S5": {
+      "name": "Recovery",
+      "emergency": true,
+      "emergency_start": "I1",
+      "emergency_destination": "I3",
+      "emergency_type": "ambulance",
+      "initial_vehicles": 30,
+      "congestion_hotspot": ["I2"],
+      "duration": 200
+    }
+  }
+}
