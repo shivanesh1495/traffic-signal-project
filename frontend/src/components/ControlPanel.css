@@ -1,0 +1,162 @@
+.cp {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* ── Status strip ── */
+.cp-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px var(--space-3);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.cp-status-badge {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-family: var(--font-mono);
+  min-width: 58px;
+}
+
+.cp-status-time {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.cp-status-tick {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+/* ── Sections ── */
+.cp-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border);
+}
+.cp-section:last-child {
+  border-bottom: none;
+}
+
+.cp-section-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+/* ── Traffic intensity toggle ── */
+.cp-intensity-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.cp-intensity-btn {
+  padding: 6px 4px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.cp-intensity-btn:hover:not(:disabled) {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.cp-intensity-btn.active {
+  background: rgba(74,158,255,0.15);
+  border-color: var(--blue);
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.cp-intensity-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.cp-intensity-hint {
+  font-size: 9px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Button grid (2×2) ── */
+.cp-btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* ── Shared button base ── */
+.cp-btn {
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  width: 100%;
+}
+
+.cp-btn-start    { background: #16532d; color: #86efac; border: 1px solid #15803d; }
+.cp-btn-pause    { background: #713f12; color: #fed7aa; border: 1px solid #92400e; }
+.cp-btn-reset    { background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border-light); }
+.cp-btn-tick     { background: #1e3a8a; color: #93c5fd; border: 1px solid #1d4ed8; }
+.cp-btn-dispatch { background: #7f1d1d; color: #fca5a5; border: 1px solid #991b1b; }
+.cp-btn-demo     { background: #4c1d95; color: #d8b4fe; border: 1px solid #6d28d9; }
+
+/* ── Form layout ── */
+.cp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cp-field-label {
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cp-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+/* ── Dispatch feedback ── */
+.cp-msg {
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+  word-break: break-word;
+}
+.cp-msg-ok  { background: rgba(34,197,94,0.1);  color: #86efac; border: 1px solid rgba(34,197,94,0.25); }
+.cp-msg-err { background: rgba(239,68,68,0.1);  color: #fca5a5; border: 1px solid rgba(239,68,68,0.25); }
