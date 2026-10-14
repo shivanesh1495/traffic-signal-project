@@ -52,6 +52,15 @@ const R_OUTER = 20;   // outer ring
 const R_FILL  = 12;   // signal colour fill
 const R_PULSE = 28;   // emergency pulse ring
 
+// Queue badges sit beside the node without covering the road geometry.
+// The three intersections with multiple/diagonal approaches need custom
+// placement; the default keeps the badge on the right for simpler nodes.
+const QUEUE_BADGE_POSITION = {
+  I1: { dx: -56, dy: -6 },
+  I2: { dx:  24, dy: -38 },
+  I4: { dx: -54, dy:  18 },
+};
+
 export default function NetworkMap({ simState, network }) {
   if (!network && !simState) {
     return (
@@ -209,6 +218,10 @@ export default function NetworkMap({ simState, network }) {
         const queueSum = Object.values(edges || {})
           .filter(e => e.to_node === node.id)
           .reduce((s, e) => s + (e.queue_length || 0), 0);
+        const queueBadge = QUEUE_BADGE_POSITION[node.id] || {
+          dx: R_OUTER + 4,
+          dy: -5,
+        };
 
         return (
           <g key={node.id}>
@@ -265,12 +278,12 @@ export default function NetworkMap({ simState, network }) {
 
             {/* Queue count — to the right of the ring, only when > 0 */}
             {queueSum > 0 && (
-              <g transform={`translate(${x + R_OUTER + 4}, ${y - 5})`}>
-                <rect x={0} y={0} width={26} height={12} rx={3}
-                  fill="rgba(234,179,8,0.18)" stroke="#eab30855" strokeWidth={0.8}/>
-                <text x={13} y={9}
+              <g transform={`translate(${x + queueBadge.dx}, ${y + queueBadge.dy})`}>
+                <rect x={0} y={0} width={34} height={14} rx={4}
+                  fill="#fff7cc" stroke="#d49b00" strokeWidth={1}/>
+                <text x={17} y={10}
                   textAnchor="middle"
-                  fill="#eab308" fontSize="8" fontWeight="700"
+                  fill="#6b4f00" fontSize="9" fontWeight="800"
                   fontFamily="var(--font-mono,monospace)">
                   Q:{queueSum}
                 </text>
