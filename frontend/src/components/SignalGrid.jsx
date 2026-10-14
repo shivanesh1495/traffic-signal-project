@@ -20,9 +20,17 @@ const SIG_LABEL = {
 };
 
 export default function SignalGrid({ simState, network }) {
-  if (!network) return null;
+  if (!network && !simState) return null;
 
-  const { intersections, edges } = network;
+  const liveIntersections = (simState?.intersections && Object.keys(simState.intersections).length > 0)
+    ? simState.intersections
+    : (network?.intersections || {});
+  const liveEdges = (simState?.edges && Object.keys(simState.edges).length > 0)
+    ? simState.edges
+    : (network?.edges || {});
+
+  const intersections = liveIntersections;
+  const edges = liveEdges;
   const signals = simState?.signals || {};
 
   const rows = Object.values(intersections || {}).map(node => {

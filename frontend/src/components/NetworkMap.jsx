@@ -53,7 +53,7 @@ const R_FILL  = 12;   // signal colour fill
 const R_PULSE = 28;   // emergency pulse ring
 
 export default function NetworkMap({ simState, network }) {
-  if (!network) {
+  if (!network && !simState) {
     return (
       <div style={{
         display:'flex', alignItems:'center', justifyContent:'center',
@@ -64,7 +64,15 @@ export default function NetworkMap({ simState, network }) {
     );
   }
 
-  const { intersections, edges } = network;
+  const liveIntersections = (simState?.intersections && Object.keys(simState.intersections).length > 0)
+    ? simState.intersections
+    : (network?.intersections || {});
+  const liveEdges = (simState?.edges && Object.keys(simState.edges).length > 0)
+    ? simState.edges
+    : (network?.edges || {});
+
+  const intersections = liveIntersections;
+  const edges = liveEdges;
   const { signals = {}, vehicles = [], emergency_vehicles = [] } = simState || {};
   const ev = emergency_vehicles[0] || null;
 
