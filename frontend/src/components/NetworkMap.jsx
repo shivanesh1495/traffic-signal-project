@@ -183,21 +183,6 @@ export default function NetworkMap({ simState, network }) {
               filter={isEmg ? 'url(#glow-sm)' : undefined}
               markerEnd={isEmg ? 'url(#arr-em)' : 'url(#arr)'}
             />
-            {/* Vehicle count label — only when > 0, offset perpendicular to road */}
-            {edge.vehicle_count > 0 && (() => {
-              const mx = (ax+bx)/2, my = (ay+by)/2;
-              // perpendicular offset 10px
-              const dx = bx-ax, dy = by-ay;
-              const len = Math.hypot(dx,dy) || 1;
-              const px = -dy/len*10, py = dx/len*10;
-              return (
-                <text x={mx+px} y={my+py+3}
-                  fill="#505880" fontSize="8" textAnchor="middle"
-                  fontFamily="var(--font-mono,monospace)">
-                  {edge.vehicle_count}v
-                </text>
-              );
-            })()}
           </g>
         );
       })}
