@@ -55,13 +55,10 @@ export default function SignalGrid({ simState, network }) {
               <th>Agent</th>
               <th>State</th>
               <th>Rem.</th>
-              <th>Veh</th>
-              <th>Queue</th>
-              <th>Cong.</th>
             </tr>
           </thead>
           <tbody>
-            {rows.map(({ node, sig, state, meta, vehicles, queued, cong }) => (
+            {rows.map(({ node, sig, state, meta }) => (
               <tr key={node.id} className={state.startsWith('EMERGENCY') ? 'sg-emg-row' : ''}>
                 <td className="sg-node">{node.id}</td>
                 <td className="sg-agent">{node.signal_agent_id}</td>
@@ -74,9 +71,6 @@ export default function SignalGrid({ simState, network }) {
                   </span>
                 </td>
                 <td className="sg-mono">{sig.phase_remaining?.toFixed(0) ?? '—'}s</td>
-                <td className="sg-mono">{vehicles}</td>
-                <td className="sg-mono sg-queue">{queued}</td>
-                <td className="sg-mono sg-cong">{(cong * 100).toFixed(0)}%</td>
               </tr>
             ))}
           </tbody>

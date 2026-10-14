@@ -6,7 +6,7 @@
 
 .el-count {
   margin-left: auto;
-  font-size: 10px;
+  font-size: 13px;
   font-family: var(--font-mono);
   color: var(--text-muted);
   background: var(--bg-card);
@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   padding: var(--space-5);
 }
@@ -42,7 +42,7 @@
   gap: 6px;
   padding: 3px 6px;
   border-radius: var(--radius-sm);
-  font-size: 10px;
+  font-size: 13px;
   font-family: var(--font-mono);
   line-height: 1.4;
   min-width: 0;
@@ -59,7 +59,7 @@
 }
 
 .el-tag {
-  font-size: 8px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.4px;
   padding: 2px 4px;
@@ -71,15 +71,11 @@
 
 .el-agents {
   color: var(--text-secondary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 
 .el-detail {
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
   min-width: 0;
 }

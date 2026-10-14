@@ -115,7 +115,7 @@ export default function NetworkMap({ simState, network }) {
     <svg
       viewBox={`0 0 ${VW} ${VH}`}
       preserveAspectRatio="xMidYMid meet"
-      style={{ width:'100%', height:'100%', display:'block', background:'#0b0d14' }}
+      style={{ width:'100%', height:'100%', display:'block', background:'#ffffff' }}
     >
       <defs>
         <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -127,14 +127,14 @@ export default function NetworkMap({ simState, network }) {
           <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
         <radialGradient id="nm-bg" cx="50%" cy="50%" r="70%">
-          <stop offset="0%"   stopColor="#131726"/>
-          <stop offset="100%" stopColor="#0b0d14"/>
+          <stop offset="0%"   stopColor="#ffffff"/>
+          <stop offset="100%" stopColor="#f4f4f4"/>
         </radialGradient>
         <marker id="arr" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-          <path d="M0,0 L0,5 L5,2.5 z" fill="#252a45"/>
+          <path d="M0,0 L0,5 L5,2.5 z" fill="#b00020"/>
         </marker>
         <marker id="arr-em" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-          <path d="M0,0 L0,5 L5,2.5 z" fill="#4a9effaa"/>
+          <path d="M0,0 L0,5 L5,2.5 z" fill="#b00020aa"/>
         </marker>
       </defs>
 
@@ -143,7 +143,7 @@ export default function NetworkMap({ simState, network }) {
 
       {/* Subtle dot grid */}
       {Array.from({length:9},(_,i) => Array.from({length:6},(_,j) => (
-        <circle key={`d${i}-${j}`} cx={50+i*66} cy={30+j*60} r={0.8} fill="#1a1f35"/>
+        <circle key={`d${i}-${j}`} cx={50+i*66} cy={30+j*60} r={0.8} fill="#dddddd"/>
       )))}
 
       {/* ── Road edges ── */}
@@ -228,7 +228,7 @@ export default function NetworkMap({ simState, network }) {
 
             {/* Outer ring (dark background) */}
             <circle cx={x} cy={y} r={R_OUTER}
-              fill="#0f1220" stroke={color} strokeWidth={2}
+              fill="#ffffff" stroke={color} strokeWidth={2}
               filter={isEmg ? 'url(#glow-sm)' : undefined}/>
 
             {/* Signal colour fill */}
@@ -247,7 +247,7 @@ export default function NetworkMap({ simState, network }) {
             {/* Intersection ID — directly above outer ring */}
             <text x={x} y={y - R_OUTER - 8}
               textAnchor="middle"
-              fill="#eef0fb" fontSize="11" fontWeight="700"
+              fill="#111111" fontSize="11" fontWeight="700"
               fontFamily="var(--font-sans,-apple-system,sans-serif)">
               {node.id}
             </text>
@@ -255,7 +255,7 @@ export default function NetworkMap({ simState, network }) {
             {/* Agent ID — one line further above */}
             <text x={x} y={y - R_OUTER - 20}
               textAnchor="middle"
-              fill="#3d4566" fontSize="8"
+              fill="#555555" fontSize="8"
               fontFamily="var(--font-sans,-apple-system,sans-serif)">
               {node.signal_agent_id}
             </text>
@@ -264,7 +264,7 @@ export default function NetworkMap({ simState, network }) {
             {phaseRem && (
               <text x={x} y={y + R_OUTER + 12}
                 textAnchor="middle"
-                fill="#3d4566" fontSize="8"
+                fill="#555555" fontSize="8"
                 fontFamily="var(--font-mono,monospace)">
                 {phaseRem}
               </text>
@@ -314,7 +314,7 @@ export default function NetworkMap({ simState, network }) {
       {/* ── Legend — bottom-right corner, no network overlap ── */}
       <g transform={`translate(${VW - LEG_W - 8}, ${VH - LEG_H - 8})`}>
         <rect width={LEG_W} height={LEG_H} rx="5"
-          fill="rgba(11,13,20,0.90)" stroke="#1e2340" strokeWidth={1}/>
+          fill="rgba(255,255,255,0.95)" stroke="#b00020" strokeWidth={1}/>
         {LEGEND.map((item, i) => (
           <g key={item.label} transform={`translate(7, ${6 + i * LEG_RH})`}>
             <circle cx={4.5} cy={4.5} r={3.8} fill={item.color}/>

@@ -20,7 +20,7 @@
 }
 
 .cp-status-badge {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 1px;
   font-family: var(--font-mono);
@@ -28,14 +28,14 @@
 }
 
 .cp-status-time {
-  font-size: 11px;
+  font-size: 13px;
   font-family: var(--font-mono);
   color: var(--text-primary);
   flex: 1;
 }
 
 .cp-status-tick {
-  font-size: 10px;
+  font-size: 13px;
   font-family: var(--font-mono);
   color: var(--text-secondary);
 }
@@ -53,7 +53,7 @@
 }
 
 .cp-section-label {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -69,7 +69,7 @@
 
 .cp-intensity-btn {
   padding: 6px 4px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
@@ -97,7 +97,7 @@
 }
 
 .cp-intensity-hint {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -112,18 +112,18 @@
 /* ── Shared button base ── */
 .cp-btn {
   padding: 7px 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   border-radius: var(--radius-sm);
   width: 100%;
 }
 
-.cp-btn-start    { background: #16532d; color: #86efac; border: 1px solid #15803d; }
-.cp-btn-pause    { background: #713f12; color: #fed7aa; border: 1px solid #92400e; }
+.cp-btn-start    { background: #1f7a1f; color: #ffffff; border: 1px solid #145214; }
+.cp-btn-pause    { background: #666666; color: #ffffff; border: 1px solid #444444; }
 .cp-btn-reset    { background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border-light); }
-.cp-btn-tick     { background: #1e3a8a; color: #93c5fd; border: 1px solid #1d4ed8; }
-.cp-btn-dispatch { background: #7f1d1d; color: #fca5a5; border: 1px solid #991b1b; }
-.cp-btn-demo     { background: #4c1d95; color: #d8b4fe; border: 1px solid #6d28d9; }
+.cp-btn-tick     { background: #333333; color: #ffffff; border: 1px solid #111111; }
+.cp-btn-dispatch { background: #b00020; color: #ffffff; border: 1px solid #7f0017; }
+.cp-btn-demo     { background: #7f0017; color: #ffffff; border: 1px solid #5c0010; }
 
 /* ── Form layout ── */
 .cp-form {
@@ -139,7 +139,7 @@
 }
 
 .cp-field-label {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -152,7 +152,7 @@
 
 /* ── Dispatch feedback ── */
 .cp-msg {
-  font-size: 10px;
+  font-size: 12px;
   padding: 5px 8px;
   border-radius: var(--radius-sm);
   line-height: 1.4;

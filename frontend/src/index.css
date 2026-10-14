@@ -9,29 +9,29 @@
 
 :root {
   /* Backgrounds */
-  --bg-app:     #0b0d14;
-  --bg-surface: #111422;
-  --bg-panel:   #161929;
-  --bg-card:    #1c2035;
-  --bg-input:   #1c2035;
-  --bg-hover:   #222640;
+  --bg-app:     #f4f4f4;
+  --bg-surface: #ffffff;
+  --bg-panel:   #ffffff;
+  --bg-card:    #f7f7f7;
+  --bg-input:   #ffffff;
+  --bg-hover:   #fff1f1;
 
   /* Borders */
-  --border:       #252a45;
-  --border-light: #2d3358;
+  --border:       #d2d2d2;
+  --border-light: #a9a9a9;
 
   /* Text */
-  --text-primary:   #eef0fb;
-  --text-secondary: #7a85a8;
-  --text-muted:     #4a5278;
+  --text-primary:   #111111;
+  --text-secondary: #333333;
+  --text-muted:     #666666;
 
   /* Accent palette */
-  --blue:   #4a9eff;
-  --cyan:   #22d3ee;
+  --blue:   #b00020;
+  --cyan:   #8b0000;
   --green:  #22c55e;
   --yellow: #eab308;
   --orange: #f97316;
-  --red:    #ef4444;
+  --red:    #c00000;
   --purple: #a855f7;
   --pink:   #ec4899;
 
@@ -40,7 +40,7 @@
   --sig-yellow:  #eab308;
   --sig-red:     #ef4444;
   --sig-prepare: #f97316;
-  --sig-emg-grn: #06b6d4;
+  --sig-emg-grn: #8b0000;
   --sig-clear:   #a855f7;
 
   /* Spacing scale */
@@ -57,13 +57,13 @@
   --radius-lg: 12px;
 
   /* Font */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-sans: 'Times New Roman', Times, serif;
+  --font-mono: 'Times New Roman', Times, serif;
 
   /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.6);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.16);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 html, body, #root {
@@ -75,7 +75,7 @@ body {
   background: var(--bg-app);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
@@ -85,7 +85,7 @@ body {
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #3a4070; }
+::-webkit-scrollbar-thumb:hover { background: #888888; }
 
 /* ── Form elements ── */
 button {
@@ -93,7 +93,7 @@ button {
   border: none;
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.3px;
   transition: all 0.15s ease;
@@ -114,7 +114,7 @@ select, input[type="text"] {
   border-radius: var(--radius-sm);
   padding: 5px 8px;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 14px;
   outline: none;
   width: 100%;
   transition: border-color 0.15s;
@@ -151,7 +151,7 @@ select option {
 }
 
 .panel-header-title {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.6px;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ select option {
 
 /* ── Section label ── */
 .section-label {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -186,13 +186,13 @@ select option {
   padding: 3px 0;
 }
 .kv-label {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-secondary);
   min-width: 0;
   flex-shrink: 0;
 }
 .kv-value {
-  font-size: 11px;
+  font-size: 14px;
   font-family: var(--font-mono);
   color: var(--text-primary);
   text-align: right;
@@ -209,7 +209,7 @@ select option {
   align-items: center;
   padding: 2px 7px;
   border-radius: 3px;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.4px;
   font-family: var(--font-mono);
